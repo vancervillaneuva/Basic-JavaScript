@@ -77,7 +77,7 @@ const verifyPassword = (user, password) => {
   // check to see if the provided password matches the password property on the user object
   // return true if they match
   // otherwise return false
-  if (user.password === password) {
+  if (user[password] === password) {
     return true;
   }
   return false;
@@ -86,8 +86,6 @@ const verifyPassword = (user, password) => {
 const updatePassword = (user, newPassword) => {
   // replace the existing password on the user object with the value of newPassword
   // return the object
-  user.password = newPassword;
-  return user;
 };
 
 const addFriend = (user, newFriend) => {
@@ -103,10 +101,8 @@ const setUsersToPremium = (users) => {
   // each user object has the property 'isPremium'
   // set each user's isPremium property to true
   // return the users array
-  Object.keys(users).forEach((key) => {
-    users[key].isPremium = true;
-  });
-  return users;
+  users.isPremium = [];
+  return users.isPremium;
 };
 
 const sumUserPostLikes = (user) => {
